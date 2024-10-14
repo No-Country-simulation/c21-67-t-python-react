@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'apps.users',
+    'apps.orders',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
 
 ROOT_URLCONF = "backend.urls"
 
@@ -90,6 +96,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        'OPTIONS': {
+            'min_length': 8,
+            }   
     },
     {
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
