@@ -37,3 +37,8 @@ class ProductView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except JSONDecodeError:
             return Response("Invalid JSON", status=status.HTTP_400_BAD_REQUEST)
+        
+    def delete(self, request, pk):
+        product = Product.objects.get(id=pk)
+        product.update(status=False)
+        return Response("Product deleted", status=status.HTTP_204_NO_CONTENT)

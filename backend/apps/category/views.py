@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.parsers import JSONParser
 from json import JSONDecodeError
 
-# Create your views here.
+
 class CategoryView(APIView):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
@@ -38,3 +38,9 @@ class CategoryView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except JSONDecodeError:
             return Response("Invalid input", status=status.HTTP_400_BAD_REQUEST)
+        
+    def delete(self, request, pk):
+        category = Category.objects.get(pk=pk)
+        category.update(status=False)
+        return Response("Category deleted", status=status.HTTP_204_NO_CONTENT)
+    

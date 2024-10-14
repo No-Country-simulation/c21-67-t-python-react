@@ -9,6 +9,8 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class NewProductSerializer(serializers.ModelSerializer):
+    category_id = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), source='category')
+
     class Meta:
         model = Product
         fields = ['name', 'price', 'description', 'stock', 'category_id']
@@ -23,11 +25,6 @@ class NewProductSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(_("Stock must be greater than 0"))
         return value
 
-    def validate_category_id(self, value):
-        if not Category.objects.filter(id=value).exists():
-            raise serializers.ValidationError(_("Category must be valid"))
-        return value
-
     def validate(self, attrs):
         if attrs.get('name', "") == "":
             raise serializers.ValidationError(_("Name must be provided"))
@@ -39,6 +36,8 @@ class NewProductSerializer(serializers.ModelSerializer):
         return Product.objects.create(**validated_data)
 
 class UpdateProductSerializer(serializers.ModelSerializer):
+    category_id = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), source='category', required=False)
+
     class Meta:
         model = Product
         fields = ['name', 'price', 'description', 'stock', 'category_id']
@@ -49,8 +48,6 @@ class UpdateProductSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(_("Price must be greater than 0"))
         if 'stock' in attrs and attrs['stock'] < 0:
             raise serializers.ValidationError(_("Stock must be greater than 0"))
-        if 'category_id' in attrs and not Category.objects.filter(id=attrs['category_id']).exists():
-            raise serializers.ValidationError(_("Category must be valid"))
         return attrs
 
     def update(self, instance, validated_data):

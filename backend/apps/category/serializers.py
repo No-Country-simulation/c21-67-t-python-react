@@ -36,3 +36,26 @@ class UpdateCategorySerializer(serializers.ModelSerializer):
         instance.description = validated_data.get("description", instance.description)
         instance.save()
         return instance
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = "__all__"
+        partial = True
+    
+    def validate(self, attrs):
+        name = attrs.get("name")
+        if name == "":
+            raise serializers.ValidationError("Name cannot be empty")
+        if Category.objects.filter(name=name).exists():
+            raise serializers.ValidationError("Category already exists")
+        return attrs
+
+    def create(self, validated_data):
+        return Category.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.name = validated_data.get("name", instance.name)
+        instance.description = validated_data.get("description", instance.description)
+        instance.save()
+        return instance
