@@ -23,3 +23,4 @@ urlpatterns = [
     path("api/", include("apps.cartitem.urls")),
     path("api/", include("apps.review.urls")),
 ]
+
