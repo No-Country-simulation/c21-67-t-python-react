@@ -16,6 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
+<<<<<<< HEAD
 from django.urls import path,include
 
 urlpatterns = [
@@ -23,4 +24,10 @@ urlpatterns = [
      path("api/", include("apps.cart.urls")),
     path("api/", include("apps.cartitem.urls")),
     path("api/", include("apps.review.urls")),
+=======
+from django.urls import path
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+>>>>>>> 226f49b380da92b40be9dc7442f621f221ddc0f5
 ]
