@@ -13,3 +13,6 @@ class Category(models.Model):
     def update(self, status):
         self.status = status
         self.save()
+    
+    def __str__(self):
+        return f"{self.name}"

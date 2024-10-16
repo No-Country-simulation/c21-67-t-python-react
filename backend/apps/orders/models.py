@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 from django.conf import settings
-#from products.models import Product  
+from apps.product.models import Product  
 
 class Order(models.Model):
     PENDING = 'pending'
@@ -28,22 +28,22 @@ class Order(models.Model):
     def __str__(self):
         return f"Order {self.id} by {self.user.username}"
 
-# class OrderItem(models.Model):
-#     order = models.ForeignKey(
-#         Order, 
-#         on_delete=models.CASCADE, 
-#         related_name='order_items'
-#     )  # Relaciona con la orden a la que pertenece
-#     product = models.ForeignKey(
-#         Product, 
-#         on_delete=models.CASCADE, 
-#         related_name='order_items'
-#     )  # El producto que se está ordenando
-#     quantity = models.PositiveIntegerField()  # Cantidad de productos
-#     price = models.DecimalField(max_digits=10, decimal_places=2)  # Precio unitario del producto
+class OrderItem(models.Model):
+    order = models.ForeignKey(
+        Order, 
+        on_delete=models.CASCADE, 
+        related_name='order_items'
+    )  # Relaciona con la orden a la que pertenece
+    product = models.ForeignKey(
+        Product, 
+        on_delete=models.CASCADE, 
+        related_name='order_items'
+    )  # El producto que se está ordenando
+    quantity = models.PositiveIntegerField()  # Cantidad de productos
+    price = models.DecimalField(max_digits=10, decimal_places=2)  # Precio unitario del producto
 
-#     def __str__(self):
-#         return f"{self.quantity} x {self.product.name} in Order {self.order.id}"
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name} in Order {self.order.id}"
     
-#     def get_total_price(self):
-#         return self.quantity * self.price  # Calcula el precio total de este ítem en la orden
+    def get_total_price(self):
+        return self.quantity * self.price  # Calcula el precio total de este ítem en la orden
