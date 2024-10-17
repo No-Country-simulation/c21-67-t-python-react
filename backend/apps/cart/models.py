@@ -1,10 +1,10 @@
 from django.db import models
-from apps.users.models import User
+from apps.users.models import CustomUser
 
 
 
 class Cart(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='carts')
+    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='carts')
     
     class Meta:
         managed = True
