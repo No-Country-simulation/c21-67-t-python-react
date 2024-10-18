@@ -20,13 +20,7 @@ export default function RootLayout({
     <html lang="es">
       <Head>
         <link rel="icon" href="./VinoVivo_dark-isotipo-con-fondo-en-jpg.ico" />
-        <meta
-          name="Description"
-          content="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            repudiandae non quaerat ipsa at fugiat, dolorem itaque optio
-            reprehenderit eius facilis perferendis fugit natus eveniet porro
-            aliquam aspernatur illo officiis."
-        ></meta>
+        <meta name="Description" content={metadata.description ?? ""}></meta>
       </Head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen divide-y divide-foreground">
