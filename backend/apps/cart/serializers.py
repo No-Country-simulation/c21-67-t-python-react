@@ -7,7 +7,11 @@ class NewCartSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
     def validate(self, attrs):
-        # Si hay alguna validación personalizada para `Cart`, la agregamos aca.
+        user = attrs.get('user_id')  # obtengo el usuario
+        # Verifica si ya tiene un carrito
+        if Cart.objects.filter(user_id=user).exists():
+            raise serializers.ValidationError("Este usuario ya tiene un carrito.")
+        
         return attrs
 
     def create(self, validated_data):
