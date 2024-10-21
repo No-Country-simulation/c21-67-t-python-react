@@ -8,7 +8,7 @@ class NewReviewSerializer(serializers.ModelSerializer):
         read_only_fields = ['created_at']  # `created_at` se establece automáticamente y no se debe modificar
 
     def validate_rating(self, value):
-        if value < 1 or value > 5:
+        if value <= 1 or value >= 5:
             raise serializers.ValidationError("Rating must be between 1 and 5.")
         return value
 
