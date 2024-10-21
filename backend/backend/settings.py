@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     "apps.cart",
     "apps.cartitem",
     "apps.review",
+    'rest_framework',
+    'apps.users',
+    'apps.orders',
+    'apps.category',
+    'apps.product',
+
 ]
 
 MIDDLEWARE = [
@@ -51,6 +57,18 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # Habilita la interfaz de navegador
+    ],
+}
+
 
 ROOT_URLCONF = "backend.urls"
 
@@ -93,6 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        'OPTIONS': {
+            'min_length': 8,
+            }   
     },
     {
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
@@ -124,3 +145,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5
+}

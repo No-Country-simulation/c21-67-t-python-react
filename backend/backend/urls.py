@@ -1,3 +1,4 @@
+
 """
 URL configuration for backend project.
 
@@ -14,13 +15,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-     path("api/", include("apps.cart.urls")),
+    path("api/", include("apps.category.urls")),
+    path("api/", include("apps.product.urls")),
+    path('api/', include('apps.users.urls')),
+    path('api/', include('apps.orders.urls')),
+    path("api/", include("apps.cart.urls")),
     path("api/", include("apps.cartitem.urls")),
     path("api/", include("apps.review.urls")),
+
 ]
 
