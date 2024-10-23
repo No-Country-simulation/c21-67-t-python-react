@@ -5,53 +5,21 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import { Card } from "./Card";
 import Link from "next/link";
+import { propsCategory } from "@/types/category";
+import { getCategory } from "@/services/category";
+import { useEffect, useState } from "react";
 
-interface props {
-  id: number;
-  name: string; //(max_length=255)
-  description: string;
-  status: boolean; //(default=True)
-}
-export default function App() {
-  const categorys: props[] = [
-    {
-      id: 1,
-      name: "Procesadores",
-      description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel quidem iste earum. Maiores ipsa unde aperiam mollitia illo beatae minima provident, hic rerum corporis sed similique inventore nisi, distinctio vitae!",
-      status: true,
-    },
-    {
-      id: 2,
-      name: "Memorias Ram",
-      description: "Test Category",
-      status: true,
-    },
-    {
-      id: 3,
-      name: "Discos duros",
-      description: "Test Category",
-      status: true,
-    },
-    {
-      id: 4,
-      name: "Placas",
-      description: "Test Category",
-      status: true,
-    },
-    {
-      id: 5,
-      name: "Teclados",
-      description: "Test Category",
-      status: true,
-    },
-    {
-      id: 6,
-      name: "Tarjetas de video",
-      description: "Test Category",
-      status: true,
-    },
-  ];
+export const CategoryList = () => {
+  const [categorys1, setCategorys1] = useState<propsCategory[]>();
+
+  useEffect(() => {
+    const fetchAllCategorys = async () => {
+      const allCategorys = await getCategory();
+      setCategorys1(allCategorys);
+    };
+    fetchAllCategorys();
+  }, []);
+
   return (
     <>
       <div className="lg:block sm:max-lg:hidden">
@@ -68,7 +36,7 @@ export default function App() {
           }}
           modules={[Navigation, Pagination, Keyboard, Mousewheel]}
         >
-          {categorys.map((categoria) => (
+          {categorys1?.map((categoria) => (
             <SwiperSlide key={categoria.id} className="p-2 bg-secondary">
               <Link href={"/category/" + categoria.id}>
                 <Card {...categoria} />
@@ -89,7 +57,7 @@ export default function App() {
           keyboard={true}
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         >
-          {categorys.map((categoria) => (
+          {categorys1?.map((categoria) => (
             <SwiperSlide key={categoria.id} className="p-2 bg-secondary">
               <Link href={"/category/" + categoria.id}>
                 <Card {...categoria} />
@@ -100,4 +68,4 @@ export default function App() {
       </div>
     </>
   );
-}
+};

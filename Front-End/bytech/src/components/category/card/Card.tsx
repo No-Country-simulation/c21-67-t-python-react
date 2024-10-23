@@ -1,10 +1,6 @@
-interface propsCard {
-  id: number;
-  name: string; //(max_length=255)
-  description: string;
-  status: boolean; //(default=True)
-}
-export const Card = ({ name, id, description }: propsCard) => {
+import { propsCategory } from "@/types/category";
+
+export const Card = ({ name, id, description }: propsCategory) => {
   return (
     <div
       key={id}
