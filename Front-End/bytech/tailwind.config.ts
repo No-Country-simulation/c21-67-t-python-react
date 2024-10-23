@@ -21,6 +21,8 @@ const config: Config = {
         secondary: "var(--secondary)",
         btnActive: "var(--btn-active)",
         footer: "var(--footer)",
+        backgroundCard: "var(--background-card)",
+        textCard: "var(--text-card)",
       },
     },
   },

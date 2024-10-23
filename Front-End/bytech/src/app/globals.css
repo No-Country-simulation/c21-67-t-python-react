@@ -9,6 +9,8 @@
   --secondary: #24B6B6;
   --btn-active: #EFECE7;
   --footer: #5A5E5D;
+  --background-card: #D9D9D9;
+  --text-card: #C7C7C7
 }
 
 @media (prefers-color-scheme: dark) {
