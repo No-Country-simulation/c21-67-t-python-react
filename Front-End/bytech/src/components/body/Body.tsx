@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import CategoryList from "../category/card/CategoryList";
 
 const Body = () => {
   return (
     <>
       <div>
-        <div className="flex justify-center items-center mb-6">
+        <CategoryList />
+      </div>
+      <div>
+        <div className="flex justify-center items-center p-6 mb-6">
           <p className="font-light italic mt-5 text-neutral-500 text-center text-lg">
             <a className="font-bold italic text-xl">"</a>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
