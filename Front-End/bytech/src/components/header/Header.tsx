@@ -13,7 +13,14 @@ export const Header = () => {
     <>
       <div className="grid grid-cols-4 gap-4 bg-primary mt-0  place-items-center">
         <div className="p-2 mx-2">
-          <img alt="imagen del logo" src="/logo.png" width={100} height={100} />
+          <Link href="/">
+            <img
+              alt="imagen del logo"
+              src="/logo.png"
+              width={100}
+              height={100}
+            />
+          </Link>
         </div>
         <div className="col-span-2 justify-around lg:flex sm:max-lg:hidden gap-2 flex-wrap">
           <div className="flex gap-6 items-center text-background">
