@@ -13,10 +13,7 @@ const Body = () => {
         <div className="flex justify-center items-center p-6 mb-6">
           <p className="font-light italic mt-5 text-neutral-500 text-center text-lg">
             <a className="font-bold italic text-xl">"</a>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            repudiandae non quaerat ipsa at fugiat, dolorem itaque optio
-            reprehenderit eius facilis perferendis fugit natus eveniet porro
-            aliquam aspernatur illo officiis.
+            Innovación y Tecnología al Alcance de Todos
             <a className="font-bold italic text-xl">"</a>
           </p>
         </div>
