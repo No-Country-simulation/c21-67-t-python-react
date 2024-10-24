@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "@/services/produc";
+import { getProducts } from "@/services/product";
 import { propsProduct } from "@/types/product";
 import { CardBase } from "./CardBase";
 import "swiper/css";
