@@ -10,10 +10,11 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class NewProductSerializer(serializers.ModelSerializer):
     category_id = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), source='category')
+    images = serializers.ImageField(required=False)
 
     class Meta:
         model = Product
-        fields = ['name', 'price', 'description', 'stock', 'category_id']
+        fields = ['name', 'price', 'description', 'stock', 'category_id', 'images']
 
     def validate_price(self, value):
         if value < 0:

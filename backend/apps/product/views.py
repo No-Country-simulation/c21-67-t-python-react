@@ -1,5 +1,6 @@
 from .models import Product
 from .serializers import ProductSerializer, NewProductSerializer, UpdateProductSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -7,6 +8,7 @@ from rest_framework.parsers import JSONParser
 from json import JSONDecodeError
 
 class ProductView(APIView):
+    parser_classes = [MultiPartParser, FormParser]
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
@@ -15,10 +17,9 @@ class ProductView(APIView):
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
     
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         try:
-            data = JSONParser().parse(request)
-            serializer = NewProductSerializer(data=data)
+            serializer = NewProductSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
