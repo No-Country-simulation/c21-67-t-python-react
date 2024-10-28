@@ -26,7 +26,7 @@ const NotFound = () => {
             VOLVER AL INICIO
           </Link>
           <Link
-            href="/products"
+            href="/product"
             className="bg-btnActive block px-3.5 py-2.5 text-center text-sm font-semibold text-accent border border-solid hover:drop-shadow-lg hover:bg-secondary"
           >
             VER PRODUCTOS
