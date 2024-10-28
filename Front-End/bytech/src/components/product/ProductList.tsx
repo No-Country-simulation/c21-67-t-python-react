@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { getProducts } from "@/services/product";
+"use client";
+import { useEffect, useState, useRef } from "react";
 import { propsProduct } from "@/types/product";
+import { getProducts } from "@/services/product";
 import { CardBase } from "./CardBase";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+
+import { Grid, Pagination } from "swiper/modules";
 
 export const ProductList = () => {
   const [products, setProducts] = useState<propsProduct[]>();
@@ -20,72 +23,15 @@ export const ProductList = () => {
   }, []);
 
   return (
-    <>
-      <div>
-        <h1 className="text-center uppercase  lg:text-lg sm:text-md font-medium text-primary mb-2">
-          Productos Recomendados
-        </h1>
+    <div>
+      <h1 className="text-center uppercase  lg:text-lg sm:text-md font-medium text-primary my-4">
+        Productos
+      </h1>
+      <div className="grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-3 gap-6 mx-2">
+        {products?.map((product) => (
+          <CardBase {...product} />
+        ))}
       </div>
-      {/* desktop */}
-      <div className="lg:block sm:max-lg:hidden">
-        <Swiper
-          className="w-4/5"
-          slidesPerView={3}
-          spaceBetween={25}
-          cssMode={true}
-          navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        >
-          {products?.map((product) => (
-            <SwiperSlide key={product.id} className="p-2">
-              <CardBase {...product} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-
-      {/* tablet */}
-      <div className="lg:hidden sm:hidden md:block">
-        <Swiper
-          className="w-4/5"
-          slidesPerView={2}
-          spaceBetween={25}
-          cssMode={true}
-          navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        >
-          {products?.map((product) => (
-            <SwiperSlide key={product.id} className="p-2">
-              <CardBase {...product} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-
-      {/* mobile */}
-      <div className="sm:block md:hidden">
-        <Swiper
-          className="w-4/5"
-          cssMode={true}
-          navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        >
-          {products?.map((product) => (
-            <SwiperSlide key={product.id} className="p-2">
-              <CardBase {...product} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </>
+    </div>
   );
 };
