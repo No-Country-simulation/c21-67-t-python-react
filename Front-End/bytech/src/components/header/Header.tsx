@@ -26,7 +26,7 @@ export const Header = () => {
           <div className="flex gap-6 items-center text-background">
             <Link href="/product">Productos</Link>
             <Link href="/about">Sobre Nosotros</Link>
-            <Link href="contact">Contacto</Link>
+            <Link href="/contact">Contacto</Link>
           </div>
           <div className=" lg:block md:hidden">
             <input
