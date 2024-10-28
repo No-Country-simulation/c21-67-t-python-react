@@ -24,7 +24,7 @@ export const Header = () => {
         </div>
         <div className="col-span-2 justify-around lg:flex sm:max-lg:hidden gap-2 flex-wrap">
           <div className="flex gap-6 items-center text-background">
-            <Link href="/products">Productos</Link>
+            <Link href="/product">Productos</Link>
             <Link href="/about">Sobre Nosotros</Link>
             <Link href="contact">Contacto</Link>
           </div>
