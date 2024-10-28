@@ -10,7 +10,8 @@
   --btn-active: #EFECE7;
   --footer: #5A5E5D;
   --background-card: #D9D9D9;
-  --text-card: #C7C7C7
+  --text-card: #C7C7C7;
+  --popover: #948484;
 }
 
 @media (prefers-color-scheme: dark) {
