@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { CategoryList } from "../category/card/CategoryList";
-import { ProductList } from "../product/ProductList";
+import { ProductRecomend } from "../product/ProductRecomend";
 
 const Body = () => {
   return (
@@ -19,11 +19,11 @@ const Body = () => {
       </div>
       <div className="mb-5">
         <div>
-          <ProductList />
+          <ProductRecomend />
         </div>
         <div className="flex justify-self-center items-center">
           <Link
-            href="/products"
+            href="product/"
             className=" bg-secondary hover:bg-btnActive hover:text-foreground text-white font-medium text-sm mt-10 py-1.5 px-16 rounded-sm sm:px-36 lg:px-80"
           >
             VER TODOS
