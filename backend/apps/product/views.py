@@ -4,7 +4,6 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.parsers import JSONParser
 from json import JSONDecodeError
 
 class ProductView(APIView):
@@ -14,7 +13,7 @@ class ProductView(APIView):
     
     def get(self, request):
         products = Product.objects.all()
-        serializer = ProductSerializer(products, many=True)
+        serializer = ProductSerializer(products, many=True, context={'request': request})
         return Response(serializer.data)
     
     def post(self, request, *args, **kwargs):
@@ -29,15 +28,14 @@ class ProductView(APIView):
     
     def patch(self, request, pk):
         try:
-            data = JSONParser().parse(request)
             product = Product.objects.get(id=pk)
-            serializer = UpdateProductSerializer(product, data=data, partial=True)
+            serializer = UpdateProductSerializer(product, data=request.data, partial=True)  # Cambiar aquí
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        except JSONDecodeError:
-            return Response("Invalid JSON", status=status.HTTP_400_BAD_REQUEST)
+        except Product.DoesNotExist:
+            return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
         
     def delete(self, request, pk):
         product = Product.objects.get(id=pk)

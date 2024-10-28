@@ -8,7 +8,6 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)   
     stock = models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
-    images = models.ImageField(upload_to="products", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=True)
@@ -24,3 +23,14 @@ class Product(models.Model):
         
     def __str__(self):
         return f"{self.name}"
+    
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to="products/")
+    
+    class Meta:
+        managed = True
+        db_table = "product_images"
+    
+    def __str__(self):
+        return f"{self.product.name} - {self.id}"
