@@ -42,7 +42,7 @@ export const Login = () => {
     <>
       <div className="flex flex-1 flex-col justify-center p-6 mt-4 mx-auto w-4/5 border-2 border-primary">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-footer">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-primary">
             Iniciar sesión
           </h2>
         </div>
