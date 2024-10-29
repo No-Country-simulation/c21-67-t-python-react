@@ -17,12 +17,15 @@ import {
 } from "@/components/ui/form";
 import { Button } from "../ui/button";
 import DialogeMessage from "../dialogue/DialogeMessage";
+import { dataUser } from "@/types/user";
+import { getUsers } from "@/services/users";
 
 export const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState("");
   const [dialogType, setDialogType] = useState<"ÉXITO" | "ERROR">("ÉXITO");
+  const [inforUser, setInfouser] = useState<dataUser>();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -32,12 +35,24 @@ export const Login = () => {
     },
   });
 
+  const fetchGetUser = async (email: string) => {
+    const getUser = await getUsers();
+    const data = getUser.filter((ele) => ele.email == email);
+
+    if (data) {
+      setInfouser(data[0]);
+    } else {
+      alert("Usuario no encontrado");
+    }
+  };
+
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     form.reset();
     setDialogType("ÉXITO");
     setDialogMessage("Se inico sesion correctamente");
     setDialogOpen(true);
   };
+
   return (
     <>
       <div className="flex flex-1 flex-col justify-center p-6 mt-4 mx-auto w-4/5 border-2 border-primary">
