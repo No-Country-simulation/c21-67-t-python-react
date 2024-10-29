@@ -12,6 +12,9 @@
   --background-card: #D9D9D9;
   --text-card: #C7C7C7;
   --popover: #948484;
+  --success: #16a34a;
+  --warning: #ea580c;
+  --destructive: #dc2626;
 }
 
 @media (prefers-color-scheme: dark) {
