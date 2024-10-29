@@ -6,13 +6,13 @@ export type FormValues = {
 export const FormSchema = z.object({
   password: z
     .string({ message: "Ingrese una contraseña valida" })
-    .regex(/(^[A-Za-z]{1,10})([ ]{0,1})([A-Za-z]{2,16})/, {
+    .regex(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,10}$/, {
       message: "Ingrese una contraseña valida",
     })
     .min(8, {
-      message: "Password debe tener al menos 10 caracteres.",
+      message: "Password debe tener al menos 8 caracteres.",
     })
-    .max(8, {
+    .max(10, {
       message: "Password debe tener maximo 10 caracteres.",
     }),
   email: z
