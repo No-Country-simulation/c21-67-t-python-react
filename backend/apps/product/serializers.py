@@ -12,7 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
     
     def get_images(self, obj):
         images = obj.images.all()
-        return [image.image.url for image in images]
+        return [{'id': image.id, 'url': image.image.url} for image in images]
 
 class NewProductSerializer(serializers.ModelSerializer):
     category_id = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), source='category')
