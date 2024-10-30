@@ -2,7 +2,7 @@ export interface propsProduct {
   id: number;
   name: string;
   description: string;
-  image?: string;
+  images?: string;
   price: string;
   stock: number;
   created_at: string;
@@ -13,6 +13,7 @@ export interface dataProduct {
   name: string;
   price: string;
   description: string;
+  images?: string;
   stock: number;
   category_id: number;
 }
