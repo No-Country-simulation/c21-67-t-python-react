@@ -3,21 +3,14 @@ import { API_URL } from "@/utils/config";
 
 export async function getCategory(): Promise<propsCategory[]> {
   try {
-    const response = await fetch(`${API_URL}/episode`);
+    const response = await fetch(`${API_URL}/category`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch app");
     }
 
-    const data = await response.json();
-    console.log(data);
-
-    const categorys = data.results.map((ele: any) => ({
-      id: ele.id,
-      name: ele.name, //(max_length:255)
-      description: ele.episode,
-      status: true, //(default:True)
-    }));
+    const categorys = await response.json();
+    console.log(categorys);
 
     return categorys;
   } catch (error) {
