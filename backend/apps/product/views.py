@@ -26,7 +26,7 @@ class ProductView(APIView):
         '''
         return super().dispatch(request, *args, **kwargs)
     
-    def get(self, request, pk):
+    def get(self, request, pk=None):
         '''
         Maneja las solicitudes GET para obtener todos los productos.
         
@@ -42,7 +42,7 @@ class ProductView(APIView):
                 serializer = ProductSerializer(product, context={'request': request})
                 response =  Response(serializer.data)
             else: 
-                response = Response('Producto no encontrado', status=status.HTTP_404_NOT)
+                response = Response('Producto no encontrado', status=status.HTTP_400_BAD_REQUEST)
         else:
             products = Product.objects.filter(status=True)
             serializer = ProductSerializer(products, many=True, context={'request': request})
