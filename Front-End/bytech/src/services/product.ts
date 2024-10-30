@@ -3,7 +3,7 @@ import { API_URL } from "@/utils/config";
 
 export async function getProducts(): Promise<propsProduct[]> {
   try {
-    const response = await fetch("/products/", {
+    const response = await fetch(`${API_URL}/products/`, {
       method: "GET",
       headers: {
         Accept: "application/json",
