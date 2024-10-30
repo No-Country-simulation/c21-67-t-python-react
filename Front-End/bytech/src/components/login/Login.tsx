@@ -83,12 +83,14 @@ export const Login = () => {
                         <input
                           id="email"
                           type="email"
+                          autoComplete="email"
+                          required
                           {...field}
                           placeholder="carlos@gmail.com"
                           className="block w-full rounded-md border-0 px-3.5 py-2 text-footer shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6"
                         />
                       </FormControl>
-                      <FormMessage className="text-red-500 text-xs italic" />
+                      <FormMessage className="text-destructive text-xs italic" />
                     </FormItem>
                   )}
                 />
@@ -98,7 +100,7 @@ export const Login = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="block text-sm font-medium leading-6 text-footer mt-2">
-                        Password
+                        Contraseña
                       </FormLabel>
                       <FormControl>
                         <div className="mt-2 relative">
@@ -108,7 +110,7 @@ export const Login = () => {
                             {...field}
                             placeholder="********"
                             required
-                            autoComplete="current-password"
+                            autoComplete="password"
                             className="  block w-full rounded-md border-0 p-1.5 text-footer shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6"
                           />
                           <div className="absolute inset-y-0 right-0 w-8 top-2">
@@ -132,7 +134,7 @@ export const Login = () => {
                           </div>
                         </div>
                       </FormControl>
-                      <FormMessage className="text-red-500 text-xs italic" />
+                      <FormMessage className="text-destructive text-xs italic" />
                     </FormItem>
                   )}
                 />
