@@ -32,7 +32,7 @@ class ProductView(APIView):
         
         Args:
             request (HttpRequest): La solicitud HTTP.
-        
+            pk (int): El ID del producto a obtener (en caso de que sea necesario).
         Returns:
             Response: La respuesta HTTP con los datos de los productos.
         '''
