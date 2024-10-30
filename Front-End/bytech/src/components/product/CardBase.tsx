@@ -1,7 +1,9 @@
 import { propsProduct } from "@/types/product";
 import Link from "next/link";
 
-export const CardBase = ({ id, image, name }: propsProduct) => {
+export const CardBase = ({ id, images, name }: propsProduct) => {
+  console.log(id);
+
   return (
     <div
       key={id}
@@ -10,7 +12,12 @@ export const CardBase = ({ id, image, name }: propsProduct) => {
       <p className="absolute text-primary font-medium text-lg p-2 top-2">
         {name}
       </p>
-      <img alt="" src={image} height={300} width={300} />
+      <img
+        alt=""
+        src={images ?? "https://swiperjs.com/demos/images/nature-2.jpg"}
+        height={300}
+        width={300}
+      />
       <div className="absolute bottom-2">
         <Link
           href={`product/${id}`}
