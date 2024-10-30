@@ -9,3 +9,10 @@ export interface propsProduct {
   updated_at: string;
   category_id: number;
 }
+export interface dataProduct {
+  name: string;
+  price: string;
+  description: string;
+  stock: number;
+  category_id: number;
+}
