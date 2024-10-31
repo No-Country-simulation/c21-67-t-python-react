@@ -1,15 +1,12 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { propsProduct } from "@/types/product";
 import { getProducts } from "@/services/product";
 import { CardBase } from "./CardBase";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
-
-import { Grid, Pagination } from "swiper/modules";
 
 export const ProductList = () => {
   const [products, setProducts] = useState<propsProduct[]>();
