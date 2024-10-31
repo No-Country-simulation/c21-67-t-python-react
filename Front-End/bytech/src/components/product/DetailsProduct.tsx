@@ -58,14 +58,15 @@ export const DetailsProduct = (product: propsProduct) => {
               </div>
             </div>
             <p className="w-4/5 m-auto text-clip">
-              DESCRIPCION: Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quis, reiciendis porro, libero accusantium, assumenda fugit
-              mollitia nisi doloribus rem hic natus! Dolor mollitia porro eaque
-              earum rerum nostrum saepe quibusdam.
+              DESCRIPCION:{" "}
+              {product.description ??
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, reiciendis porro, libero accusantium, assumenda fugitmollitia nisi doloribus rem hic natus! Dolor mollitia porro eaque earum rerum nostrum saepe quibusdam."}
             </p>
+
             <button
               className="row bg-secondary hover:bg-btnActive hover:text-foreground text-white rounded-sm py-1.5 px-16"
               onClick={() => alert("Producto agregado al carrito")}
+              disabled={product.stock > 0}
             >
               AGREGAR AL CARRITO
             </button>
