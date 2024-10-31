@@ -1,3 +1,4 @@
+"use client";
 import { propsProduct } from "@/types/product";
 import Link from "next/link";
 
