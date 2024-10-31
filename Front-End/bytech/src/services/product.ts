@@ -25,21 +25,15 @@ export async function getProducts(): Promise<propsProduct[]> {
   }
 }
 
-export async function getProductById(
-  productId: number
-): Promise<propsProduct | null> {
+export async function getProductById(productId: number): Promise<propsProduct> {
   try {
-    const response = await fetch(`${API_URL}/products/${productId}`, {
+    const response = await fetch(`${API_URL}/products/${productId}/`, {
       method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      cache: "no-store", // Esto asegura que se obtengan datos frescos en cada solicitud.
+      cache: "no-store",
     });
 
     if (!response.ok) {
-      return null;
+      throw new Error("Failed to fetch app");
     }
 
     const productData = await response.json();
@@ -47,13 +41,13 @@ export async function getProductById(
     return productData;
   } catch (error) {
     console.error("Error al obtener detalles del producto:", error);
-    return null;
+    throw new Error("Failed to fetch app");
   }
 }
 
 export async function createProduct(
   producto: propsProduct
-): Promise<propsProduct | null> {
+): Promise<propsProduct> {
   try {
     const response = await fetch(`${API_URL}/products/`, {
       method: "POST",
@@ -67,21 +61,21 @@ export async function createProduct(
     });
 
     if (!response.ok) {
-      return null;
+      throw new Error("Failed to fetch app");
     }
 
     const productData = await response.json();
     return productData;
   } catch (error) {
     console.error("Error al obtener los detalles del producto:", error);
-    return null;
+    throw new Error("Failed to fetch app");
   }
 }
 
 // Api Fictisia
 // export async function getProducts(): Promise<propsProduct[]> {
 //   try {
-//     const response = await fetch(`${API_URL}/character`);
+//     const response = await fetch(`https://rickandmortyapi.com/api/character`);
 
 //     if (!response.ok) {
 //       throw new Error("Failed to fetch app");
@@ -94,7 +88,7 @@ export async function createProduct(
 //       id: ele.id,
 //       name: ele.name,
 //       description: ele.species + ele.gender,
-//       image: ele.image,
+//       images: ele.image,
 //       price: "50",
 //       stock: "100",
 //       created_at: ele.created,
@@ -113,14 +107,17 @@ export async function createProduct(
 //   productId: number
 // ): Promise<propsProduct | null> {
 //   try {
-//     const response = await fetch(`${API_URL}/character/${productId}`, {
-//       method: "GET",
-//       headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-//       },
-//       cache: "no-store", // Esto asegura que se obtengan datos frescos en cada solicitud.
-//     });
+//     const response = await fetch(
+//       `https://rickandmortyapi.com/api/character/${productId}`,
+//       {
+//         method: "GET",
+//         headers: {
+//           Accept: "application/json",
+//           "Content-Type": "application/json",
+//         },
+//         cache: "no-store", // Esto asegura que se obtengan datos frescos en cada solicitud.
+//       }
+//     );
 
 //     if (!response.ok) {
 //       return null;
@@ -132,7 +129,7 @@ export async function createProduct(
 //       id: productData.id,
 //       name: productData.name,
 //       description: productData.species + productData.gender,
-//       image: productData.image,
+//       images: productData.image,
 //       price: "50",
 //       stock: 100,
 //       created_at: productData.created,
