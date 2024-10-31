@@ -68,7 +68,7 @@ export const AboutUs = () => {
         </div>
         <div className="mx-auto items-center">
           <p className="text-primary text-md font-bold my-4">
-            ¿QUERÉS RESEVAR?
+            ¿QUERÉS UN TURNO?
           </p>
           <Link
             href="/contact"
