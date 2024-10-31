@@ -60,9 +60,9 @@ export const Header = () => {
                 aria-orientation="vertical"
               >
                 <div className="flex flex-col flex-wrap gap-2 text-white divide-y divide-secondary">
-                  <Link href="/products">Productos</Link>
+                  <Link href="/product">Productos</Link>
                   <Link href="/about">Sobre Nosotros</Link>
-                  <Link href="contact">Contacto</Link>
+                  <Link href="/contact">Contacto</Link>
                   <Link href="/login">Inicio Sesion</Link>
                 </div>
               </div>
