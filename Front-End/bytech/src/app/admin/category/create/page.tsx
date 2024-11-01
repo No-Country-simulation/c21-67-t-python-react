@@ -1,4 +1,4 @@
-import { FormCategoria } from "@/components/category/FormCategoria";
+import { FormCategoria } from "@/components/admin/category/create/FormCategoria";
 
 export default function Products() {
   return <FormCategoria />;
