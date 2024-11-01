@@ -52,7 +52,7 @@ export async function getUserById(idUser: number): Promise<dataUser> {
 export async function createUser(
   user: propsUser,
   iSeller: boolean
-): Promise<string> {
+): Promise<dataBaseUser> {
   try {
     const tiempoTranscurrido = Date.now();
     const hoy = new Date(tiempoTranscurrido);
@@ -83,8 +83,9 @@ export async function createUser(
     if (!response.ok) {
       throw new Error("Failed to create user");
     }
+    const dataApi = response.json();
 
-    return "usuario creado con exito";
+    return dataApi;
   } catch (error) {
     console.error("Error al obtener detalles del usuario:", error);
     throw new Error("Failed to create user");
