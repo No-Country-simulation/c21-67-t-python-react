@@ -1,4 +1,4 @@
-import { dataUser, propsUser, userCreate } from "@/types/user";
+import { dataBaseUser, dataUser, propsUser, userCreate } from "@/types/user";
 import { API_URL } from "@/utils/config";
 
 export async function getUsers(): Promise<dataUser[]> {
@@ -16,7 +16,6 @@ export async function getUsers(): Promise<dataUser[]> {
     }
 
     const data = await response.json();
-    console.log(data);
 
     return data;
   } catch (error) {
