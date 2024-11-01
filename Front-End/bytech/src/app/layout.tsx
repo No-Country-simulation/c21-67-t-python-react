@@ -4,6 +4,7 @@ import { Header } from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import Head from "next/head";
 import { Inter } from "next/font/google";
+import UserProvider from "@/context/user";
 
 export const metadata: Metadata = {
   title: "Bytech",
@@ -18,17 +19,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <Head>
-        <link rel="icon" href="/logo.png" />
-        <meta name="Description" content={metadata.description ?? ""} />
-      </Head>
-      <body className={inter.className}>
-        <div className="flex flex-col min-h-screen divide-y divide-foreground">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
-      </body>
+      <UserProvider>
+        <Head>
+          <link rel="icon" href="/logo.png" />
+          <meta name="Description" content={metadata.description ?? ""} />
+        </Head>
+        <body className={inter.className}>
+          <div className="flex flex-col min-h-screen divide-y divide-foreground">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </body>
+      </UserProvider>
     </html>
   );
 }
