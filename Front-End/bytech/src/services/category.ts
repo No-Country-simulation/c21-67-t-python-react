@@ -10,7 +10,6 @@ export async function getCategory(): Promise<propsCategory[]> {
     }
 
     const categorys = await response.json();
-    console.log(categorys);
 
     return categorys;
   } catch (error) {

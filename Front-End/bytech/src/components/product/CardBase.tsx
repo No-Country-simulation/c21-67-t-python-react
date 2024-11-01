@@ -3,8 +3,6 @@ import { propsProduct } from "@/types/product";
 import Link from "next/link";
 
 export const CardBase = ({ id, images, name }: propsProduct) => {
-  console.log(id);
-
   return (
     <div
       key={id}
