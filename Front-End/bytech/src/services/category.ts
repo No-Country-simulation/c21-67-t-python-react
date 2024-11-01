@@ -1,4 +1,4 @@
-import { propsCategory } from "@/types/category";
+import { categoryCreate, propsCategory } from "@/types/category";
 import { API_URL } from "@/utils/config";
 
 export async function getCategory(): Promise<propsCategory[]> {
