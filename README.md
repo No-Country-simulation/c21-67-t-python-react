@@ -2,8 +2,6 @@
 
 | País | Avatar | Desarrolladores | Rol Desempeñado | GitHub & LinkedIn |
 | ---- | ------ | --------------- | --------------- | ----------------- |
-|      |
-
 ![Argentinaflag_6598](https://github.com/user-attachments/assets/ec9a8a4a-3b1c-4c17-880e-f55fbf0d8b2c)| <img width="48" height="48" src="https://avatars.githubusercontent.com/u/93354522?v=4" alt="Avatar Maria Sol" /> | Maria Sol | Front-end Developer & UX/UI | [![Github](https://github.com/user-attachments/assets/6eacb3b5-0962-4836-9a3b-ba5d57270b09)](https://github.com/Sol-Zito) [![Linkedin](https://github.com/user-attachments/assets/17a08fbe-e482-417a-b6d5-518aaea1d32f)](https://www.linkedin.com/in/solzito1998/)|
 ![Argentinaflag_6598](https://github.com/user-attachments/assets/ec9a8a4a-3b1c-4c17-880e-f55fbf0d8b2c)|<img width="48" height="48" src="https://avatars.githubusercontent.com/u/103838718?v=4" alt="Avatar Leandro Sánchez" /> | Leandro Sanchez| Back-end Developer| [![Github](https://github.com/user-attachments/assets/6eacb3b5-0962-4836-9a3b-ba5d57270b09)](https://github.com/leanmsan) [![Linkedin](https://github.com/user-attachments/assets/17a08fbe-e482-417a-b6d5-518aaea1d32f)](https://www.linkedin.com/in/leandromsanchez)|
 ![FlagofColombia_6558](https://github.com/user-attachments/assets/1b0d07e4-d6e6-4304-aab2-11c189f9a00f)| <img width="48" height="48" src="https://avatars.githubusercontent.com/u/84252258?v=4" alt="Avatar David Casallas" /> |David Casallas|Back-end Developer| [![Github](https://github.com/user-attachments/assets/6eacb3b5-0962-4836-9a3b-ba5d57270b09)](https://github.com/david0-012) [![Linkedin](https://github.com/user-attachments/assets/17a08fbe-e482-417a-b6d5-518aaea1d32f)](https://www.linkedin.com/in/david-casallasp) |
